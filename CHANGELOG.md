@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.2"></a>
+## [0.1.2](https://github.com/alibaba-paimai-frontend/ide-lib-utils/compare/v0.1.1...v0.1.2) (2019-02-24)
+
+
+### Features
+
+* **功能增强:** 新增 getValueByPath 方法 ([09e7fa9](https://github.com/alibaba-paimai-frontend/ide-lib-utils/commit/09e7fa9))
+
+
+
 <a name="0.1.1"></a>
 ## 0.1.1 (2019-02-24)
 
