@@ -2,7 +2,7 @@ export const Debug = require('debug');
 
 // 基本 log 构造函数
 // 添加一些基本的注释，方便理解；
-export const debugBaseByName = (name: string) => (type:string, ...notes:string[]) => (...props: string[]) => {
+export const debugBaseByName = (name: string) => (type:string, ...notes:string[]) => (...props: any[]) => {
     let str = '';
     [].concat(notes).forEach(note => {
         str += `[${note}]`;

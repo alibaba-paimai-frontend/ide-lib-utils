@@ -32,6 +32,35 @@ export function pick(object: any, paths: string[]) {
   return obj;
 } 
 
+// copy from https://github.com/jonschlinkert/object.omit
+export function omit(obj: Record<string, any>, props: string | string[], fn: (val?: any, key?: string, obj?: Record<string, any>)=> boolean) {
+  if (!obj) return {};
+
+  if (typeof props === 'function') {
+    fn = props;
+    props = [];
+  }
+
+  if (typeof props === 'string') {
+    props = [props];
+  }
+
+  var isFunction = typeof fn === 'function';
+  var keys = Object.keys(obj);
+  var res: Record<string, any> = {};
+
+  for (var i = 0; i < keys.length; i++) {
+    var key = keys[i];
+    var val = obj[key];
+
+    if (!props || (props.indexOf(key) === -1 && (!isFunction || fn(val, key, obj)))) {
+      res[key] = val;
+    }
+  }
+  return res;
+};
+
+
 export function capitalize(str: string) {
   if (!str) return '';
   return str.charAt(0).toUpperCase() + str.slice(1);
