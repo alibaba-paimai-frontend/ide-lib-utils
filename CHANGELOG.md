@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.4"></a>
+## [0.1.4](https://github.com/alibaba-paimai-frontend/ide-lib-utils/compare/v0.1.3...v0.1.4) (2019-03-08)
+
+
+### Features
+
+* **功能新增:** 新增 isTrue 函数 ([ad84358](https://github.com/alibaba-paimai-frontend/ide-lib-utils/commit/ad84358))
+
+
+
 <a name="0.1.3"></a>
 ## [0.1.3](https://github.com/alibaba-paimai-frontend/ide-lib-utils/compare/v0.1.2...v0.1.3) (2019-03-04)
 
