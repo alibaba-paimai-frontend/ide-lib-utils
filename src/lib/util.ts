@@ -13,6 +13,10 @@ export function isExist(val: any): boolean {
   return typeof val !== 'undefined' && val !== null;
 }
 
+export function isTrue(val: any) {
+  return val === 'true' || val === true;
+}
+
 // from mobx
 export function uniq(arr: any[]) {
   var res: any[] = [];
