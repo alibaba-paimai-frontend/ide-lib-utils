@@ -1,4 +1,3 @@
-
 export function invariant(check: boolean, message: string, thing?: string) {
   if (!check) {
     throw new Error(
@@ -30,14 +29,24 @@ export function pick(object: any, paths: string[]) {
   const obj: any = {};
   for (const path of paths) {
     if (isExist(object[path])) {
-      obj[path] = object[path]
+      obj[path] = object[path];
     }
   }
   return obj;
-} 
+}
+
+type TRetainFunction = (
+  val?: any,
+  key?: string,
+  obj?: Record<string, any>
+) => boolean;
 
 // copy from https://github.com/jonschlinkert/object.omit
-export function omit(obj: Record<string, any>, props: string | string[], fn: (val?: any, key?: string, obj?: Record<string, any>)=> boolean) {
+export function omit(
+  obj: Record<string, any>,
+  props: string | string[] | TRetainFunction,
+  fn?: TRetainFunction // 满足该条件则保留
+) {
   if (!obj) return {};
 
   if (typeof props === 'function') {
@@ -57,13 +66,15 @@ export function omit(obj: Record<string, any>, props: string | string[], fn: (va
     var key = keys[i];
     var val = obj[key];
 
-    if (!props || (props.indexOf(key) === -1 && (!isFunction || fn(val, key, obj)))) {
+    if (
+      !props ||
+      (props.indexOf(key) === -1 && (!isFunction || fn(val, key, obj)))
+    ) {
       res[key] = val;
     }
   }
   return res;
-};
-
+}
 
 export function capitalize(str: string) {
   if (!str) return '';
@@ -76,11 +87,10 @@ export function isPlainObject(value: any) {
   return proto === Object.prototype || proto === null;
 }
 
-
 /**
  * get value from object
- * 
- * see for detail: 
+ *
+ * see for detail:
  *  // https://gomakethings.com/how-to-get-the-value-of-an-object-from-a-specific-path-with-vanilla-js
  *  // https://stackoverflow.com/questions/6491463/accessing-nested-javascript-objects-with-string-key
  * @param o - target object
@@ -89,7 +99,7 @@ export function isPlainObject(value: any) {
  */
 export function getValueByPath(o: any, s: string, def?: any) {
   s = s.replace(/\[(\w+)\]/g, '.$1'); // convert indexes to properties
-  s = s.replace(/^\./, '');           // strip a leading dot
+  s = s.replace(/^\./, ''); // strip a leading dot
   var a = s.split('.');
   for (var i = 0, n = a.length; i < n; ++i) {
     var k = a[i];
