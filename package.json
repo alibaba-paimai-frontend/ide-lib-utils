@@ -9,7 +9,7 @@
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/alibaba-paimai-frontend/ide-lib-utils.git"
+    "url": "https://github.com/one-gourd/ide-lib-utils.git"
   },
   "scripts": {
     "test": "./node_modules/.bin/jest",
