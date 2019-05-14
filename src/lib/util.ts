@@ -111,3 +111,5 @@ export function getValueByPath(o: any, s: string, def?: any) {
   }
   return o;
 }
+
+export * from 'advance-json-merge';
