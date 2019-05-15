@@ -1,4 +1,4 @@
-import { pick, omit } from '../../src';
+import { pick, omit, advanceMerge } from '../../src';
 import Chance from 'chance';
 
 const chance = new Chance();
@@ -57,5 +57,63 @@ describe('[omit] 从对象中排除指定属性', () => {
         return val === 1;
       })
     ).toEqual({ a: 1 });
+  });
+});
+
+describe.only('[advanceMerge] 指定条目 merge', () => {
+  test('origin 较少的情况', () => {
+    const originData = {
+      schema: { a: 1, b: 2, d: { c: 4 } },
+      visible: 1,
+      other: 5
+    };
+
+    const targetData = {
+      schema: { a: 11, c: 12, d: { e: 14, f: 15 } },
+      formData: { c: 13 },
+      visible: 4
+    };
+
+    // 默认是 Object.assign 功能
+    expect(advanceMerge(originData, targetData)).toEqual(
+      Object.assign({}, originData, targetData)
+    );
+
+    // level 0 默认是 Object.assign 功能
+    expect(
+      advanceMerge(originData, targetData, {
+        schema: { level: 0 },
+        formData: { level: 0 }
+      })
+    ).toEqual(Object.assign({}, originData, targetData));
+
+    // level 1 ，浅层次合并
+    expect(
+      advanceMerge(originData, targetData, {
+        schema: { level: 1 },
+        formData: { level: 1 }
+      })
+    ).toEqual({
+      schema: { a: 11, b: 2, c: 12, d: { e: 14, f: 15 } },
+      formData: { c: 13 },
+      visible: 4,
+      other: 5
+    });
+
+    // level 2 
+    expect(
+      advanceMerge(originData, targetData, {
+        schema: { level: 2 },
+        formData: { level: 1 }
+      })
+    ).toEqual({
+      schema: { a: 11, b: 2, c: 12, d: {c: 4, e: 14, f: 15 } },
+      formData: { c: 13 },
+      visible: 4,
+      other: 5
+    });
+
+
+
   });
 });

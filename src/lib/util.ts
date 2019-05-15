@@ -1,3 +1,7 @@
+import { mergeWithLevel, INormalObject } from 'advance-json-merge';
+
+export * from 'advance-json-merge';
+
 export function invariant(check: boolean, message: string, thing?: string) {
   if (!check) {
     throw new Error(
@@ -112,4 +116,33 @@ export function getValueByPath(o: any, s: string, def?: any) {
   return o;
 }
 
-export * from 'advance-json-merge';
+export interface IMergeRule {
+  [attr: string]: { level: number };
+}
+
+export function advanceMerge(
+  origin: INormalObject,
+  target: INormalObject,
+  mergeRule: IMergeRule = {}
+) {
+  const specialKeys = Object.keys(mergeRule);
+
+  const result: INormalObject = {};
+
+  // 先挨个处理 targetKeys 中的数值
+  specialKeys.forEach((propName: string) => {
+    // 获取对应的 level 数值，默认是 0 (直接替换)
+    const { level = 0 } = mergeRule[propName] || {};
+
+    const originValue = origin[propName];
+    const targetValue = target[propName];
+    // 只处理 target 中有的 key
+    if (isPlainObject(originValue) && isPlainObject(targetValue)) {
+      // 针对每个
+      result[propName] = mergeWithLevel(originValue, targetValue, level);
+    }
+  });
+
+  // 最后用 assign 弥补 origin 中的剩余数值
+  return Object.assign({}, origin, target, result);
+}
