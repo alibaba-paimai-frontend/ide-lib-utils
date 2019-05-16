@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.6](https://github.com/one-gourd/ide-lib-utils/compare/v0.1.5...v0.1.6) (2019-05-16)
+
+
+### Features
+
+* 🎸 功能新增: advance-json-merge ([1387980](https://github.com/one-gourd/ide-lib-utils/commit/1387980))
+* 🎸 功能新增: advanceMerge ([a397a78](https://github.com/one-gourd/ide-lib-utils/commit/a397a78))
+
+
+
 <a name="0.1.5"></a>
 ## [0.1.5](https://github.com/alibaba-paimai-frontend/ide-lib-utils/compare/v0.1.4...v0.1.5) (2019-03-21)
 
