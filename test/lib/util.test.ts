@@ -60,7 +60,7 @@ describe('[omit] 从对象中排除指定属性', () => {
   });
 });
 
-describe.only('[advanceMerge] 指定条目 merge', () => {
+describe('[advanceMerge] 指定条目 merge', () => {
   test('origin 较少的情况', () => {
     const originData = {
       schema: { a: 1, b: 2, d: { c: 4 } },
@@ -100,20 +100,45 @@ describe.only('[advanceMerge] 指定条目 merge', () => {
       other: 5
     });
 
-    // level 2 
+    // level 2
     expect(
       advanceMerge(originData, targetData, {
         schema: { level: 2 },
         formData: { level: 1 }
       })
     ).toEqual({
-      schema: { a: 11, b: 2, c: 12, d: {c: 4, e: 14, f: 15 } },
+      schema: { a: 11, b: 2, c: 12, d: { c: 4, e: 14, f: 15 } },
       formData: { c: 13 },
       visible: 4,
       other: 5
     });
+  });
 
+  test.only('propsEditor 2 层融合', () => {
+    const originData = {
+      propsEditor: {
+        formData: { c: 2 }
+      }
+    };
 
+    const targetData = {
+      propsEditor: {
+        formData: { a: 1, b: 3 },
+        schema: { c: 4 }
+      }
+    };
 
+    expect(
+      advanceMerge(originData, targetData, {
+        propsEditor: {
+          level: 2
+        }
+      })
+    ).toEqual({
+      propsEditor: {
+        formData: { a: 1, b: 3, c: 2 },
+        schema: { c: 4 }
+      }
+    });
   });
 });
