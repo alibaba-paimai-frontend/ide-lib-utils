@@ -2,6 +2,8 @@ import { mergeWithLevel, INormalObject } from 'advance-json-merge';
 
 export * from 'advance-json-merge';
 
+export * from 'ts-debounce-throttle';
+
 export function invariant(check: boolean, message: string, thing?: string) {
   if (!check) {
     throw new Error(
@@ -145,4 +147,24 @@ export function advanceMerge(
 
   // 最后用 assign 弥补 origin 中的剩余数值
   return Object.assign({}, origin, target, result);
+}
+
+/**
+ * 判断是否是数值类型
+ *
+ * @param {*} num
+ * @returns boolean
+ */
+export function isNumeric(num: any) {
+  return !isNaN(num);
+}
+
+/**
+ * 统一转换尺寸字面量，比如将 '80' 转换成 80, ’80%‘、’auto‘ 就原值返回
+ *
+ * @param {*} num
+ * @returns number | string
+ */
+export function convertIfNumberic(num: any) {
+  return isNumeric(num) ? +num : num;
 }
