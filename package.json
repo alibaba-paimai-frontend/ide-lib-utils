@@ -73,17 +73,5 @@
     "debug": "^4.1.0",
     "ts-debounce-throttle": "1.x.x"
   },
-  "peerDependencies": {
-    "ette": "0.x",
-    "ette-proxy": "0.x",
-    "ette-router": "0.x",
-    "antd": "3.x",
-    "mobx": "4.x",
-    "mobx-react": "5.x",
-    "mobx-react-lite": "1.x",
-    "mobx-state-tree": "3.10.x",
-    "react": "16.x",
-    "styled-components": "4.x.x",
-    "react-dom": "16.x"
-  }
+  "peerDependencies": {}
 }

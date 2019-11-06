@@ -109,7 +109,8 @@ export function getValueByPath(o: any, s: string, def?: any) {
   var a = s.split('.');
   for (var i = 0, n = a.length; i < n; ++i) {
     var k = a[i];
-    if (k in o) {
+    // 需要保证 o 的存在
+    if (o && k in o) {
       o = o[k];
     } else {
       return def;
