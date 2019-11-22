@@ -169,3 +169,28 @@ export function isNumeric(num: any) {
 export function convertIfNumberic(num: any) {
   return isNumeric(num) ? +num : num;
 }
+
+// https://stackoverflow.com/questions/3561493/is-there-a-regexp-escape-function-in-javascript
+
+/**
+ * 转义字符中的特殊字符
+ *
+ * @export
+ * @param {string} s - string
+ * @returns {string}
+ */
+export function escapeRegex(s: string) {
+  return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+}
+
+
+/* ----------------------------------------------------
+    类型导出
+----------------------------------------------------- */
+export interface IObject<T> {
+  [key: string]: T;
+}
+
+export interface IPlainObject {
+  [key: string]: any;
+}
