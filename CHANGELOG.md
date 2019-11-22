@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.10](https://github.com/one-gourd/ide-lib-utils/compare/v0.1.9...v0.1.10) (2019-11-22)
+
+
+### Features
+
+* 🎸 功能新增: escapeRegex 方法; 修复 IPlainObject 不存在的问题 ([a657394](https://github.com/one-gourd/ide-lib-utils/commit/a657394))
+
+
+
 ## [0.1.9](https://github.com/one-gourd/ide-lib-utils/compare/v0.1.8...v0.1.9) (2019-11-06)
 
 
