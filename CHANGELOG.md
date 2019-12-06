@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.11](https://github.com/one-gourd/ide-lib-utils/compare/v0.1.10...v0.1.11) (2019-12-06)
+
+
+### Features
+
+* 🎸 功能新增: 提供 loadScript 方法,可动态加载 js ([6a7e493](https://github.com/one-gourd/ide-lib-utils/commit/6a7e493))
+
+
+
 ## [0.1.10](https://github.com/one-gourd/ide-lib-utils/compare/v0.1.9...v0.1.10) (2019-11-22)
 
 

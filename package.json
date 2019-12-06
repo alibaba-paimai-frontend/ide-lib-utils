@@ -1,6 +1,6 @@
 {
   "name": "ide-lib-utils",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "[lib] utils for ide",
   "main": "dist/index.umd.js",
   "module": "dist/index.umd.js",
