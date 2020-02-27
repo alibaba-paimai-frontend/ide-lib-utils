@@ -184,34 +184,6 @@ export function escapeRegex(s: string) {
 }
 
 
-// https://stackoverflow.com/questions/950087/how-do-i-include-a-javascript-file-in-another-javascript-file
-
-/**
- * 动态加载 script 
- *
- * @export
- * @param {string} url - js url 地址
- * @param {()=>void} callback - 加载完成后执行的回调函数
- */
-export function loadScript(url: string) {
-  return new Promise(function(resolve) {
-    // Adding the script tag to the head as suggested before
-    var head = document.head;
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = url;
-
-    // Then bind the event to the callback function.
-    // There are several events for cross browser compatibility.
-    // @ts-ignore
-    script.onreadystatechange = resolve;
-    script.onload = resolve;
-
-    // Fire the loading
-    head.appendChild(script);
-  })
-}
-
 /* ----------------------------------------------------
     类型导出
 ----------------------------------------------------- */
