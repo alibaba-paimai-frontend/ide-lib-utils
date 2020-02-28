@@ -1,8 +1,4 @@
-import { mergeWithLevel, INormalObject } from 'advance-json-merge';
-
-export * from 'advance-json-merge';
-
-export * from 'ts-debounce-throttle';
+import { mergeWithLevel, INormalObject, IMergeRule } from 'advance-json-merge';
 
 export function invariant(check: boolean, message: string, thing?: string) {
   if (!check) {
@@ -117,10 +113,6 @@ export function getValueByPath(o: any, s: string, def?: any) {
     }
   }
   return o;
-}
-
-export interface IMergeRule {
-  [attr: string]: { level: number };
 }
 
 export function advanceMerge(

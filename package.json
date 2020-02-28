@@ -42,6 +42,7 @@
     "typescript": "3.7.2"
   },
   "dependencies": {
+    "aa-loader": "0.1.x",
     "advance-json-merge": "1.x.x",
     "debug": "^4.1.0",
     "ts-debounce-throttle": "1.x.x"

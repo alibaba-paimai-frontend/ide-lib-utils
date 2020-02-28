@@ -2,7 +2,7 @@ import * as React from 'react';
 import { render } from 'react-dom';
 import { Button } from 'antd';
 import { capitalize, loadScriptsQueue, IScriptsLoadResult } from '../src/';
-import { dependScripts, BASEURL } from './deps';
+import { assetArray, BASEURL } from './deps';
 
 console.log(888, capitalize('abc'));
 
@@ -13,7 +13,7 @@ const App = () => {
   const onClickLoadScript = () => {
     lastLoadResult = {}; // 清空
 
-    loadScriptsQueue(dependScripts, {
+    loadScriptsQueue(assetArray, {
       baseUrl: BASEURL,
       lastLoadResult
     }).then(result => {
