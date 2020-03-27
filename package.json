@@ -45,6 +45,7 @@
     "aa-loader": "0.1.x",
     "advance-json-merge": "1.x.x",
     "debug": "^4.1.0",
+    "mitt": "^1.2.0",
     "ts-debounce-throttle": "1.x.x"
   },
   "peerDependencies": {},
