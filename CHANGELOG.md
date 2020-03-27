@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.1](https://github.com/one-gourd/ide-lib-utils/compare/v0.1.11...v0.2.1) (2020-03-27)
+
+
+### Features
+
+* 🎸 功能完善: 新增 VERSION 变量 ([301bf58](https://github.com/one-gourd/ide-lib-utils/commit/301bf58))
+* 🎸 功能新增: 新增 dynamic-loader 方式加载 scripts ([90007d2](https://github.com/one-gourd/ide-lib-utils/commit/90007d2))
+* 🎸 功能新增: 新增 mitt 导出 ([b73ce0c](https://github.com/one-gourd/ide-lib-utils/commit/b73ce0c))
+
+
+
 ## [0.1.11](https://github.com/one-gourd/ide-lib-utils/compare/v0.1.10...v0.1.11) (2019-12-06)
 
 
